@@ -8,6 +8,11 @@
     font-weight: bold;
 }
 
+.MyCard.dark{
+    background-color: darkolivegreen;
+    color: white;
+}
+
 .MyCard svg{
     fill: white;
 }
