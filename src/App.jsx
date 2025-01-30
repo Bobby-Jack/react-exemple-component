@@ -21,7 +21,11 @@ function App() {
   ]
   const m = "light"
 
-
+  // ce state boolean conserve si oui ou non le modal est afficher
+  // modalOpen est le nom du state (état)
+  // setModalOpen est une fonction qui prend la nouvelle valeur de modalOpen
+  // setModalOpen est le seul moyen de changer la valeur du state
+  // la valeur fourni dans useState (false) est la valeur initial du state (modalOpen)
   const [modalOpen, setModalOpen] = useState(false)
   
   return (
@@ -29,13 +33,19 @@ function App() {
 
 
         {
+          //cette affichage conditionel fait apparaitre
+          // ou non le modal selon la valeur de modalOpen 
           modalOpen === true ?
+          // le composant ConnectionModal aura besoin de la fonction
+          // setModalOpen pour remettre modalOpen a false et ainsi fermer le modal
           <ConnectionModal setModalOpen={setModalOpen}/>
           :
           ""
         }
         <Welcome/>
-        <button onClick={()=>{setModalOpen(true)}}><FaUser/></button>
+        {/* ce bouton à pour but d'ouvrir le ConnectionModal
+        en mettant le state modalOpen à true */}
+        <button style={{backgroundColor: "red", color : "white"}} onClick={()=>{setModalOpen(true)}}><FaUser/></button>
         {/* ici, nous allons générer un composant SodaCard pour
         chaque soda dans la liste dataProduct. 
         la fonction map prend en paramètre une fonction anonyme
