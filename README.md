@@ -7,4 +7,5 @@ ce code montre un simple exemple de composant react avec des valeurs fournit en 
 - npm i
 - npm run dev
 
-# react-exemple-component
+## react-exemple-component:
+En react un component est une fonction retournant un bout de code html dyamique.
