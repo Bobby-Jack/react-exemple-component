@@ -1,7 +1,11 @@
 
 import './App.css'
+import ConnectionModal from './components/ConnectionModal/ConnectionModal'
 import MyCard from './components/MyCard/MyCard'
 import SodaCard from './components/SodaCard/SodaCard'
+import Welcome from './components/Welcome/Welcome'
+import { useState } from 'react'
+import { FaUser } from 'react-icons/fa'
 
 function App() {
   // ces données seront fournit au component MyCard pour le paramètre content
@@ -16,12 +20,22 @@ function App() {
   {"name" : "Selecto", "price" : 0.80, "promo": false},
   ]
   const m = "light"
+
+
+  const [modalOpen, setModalOpen] = useState(false)
   
   return (
     <>
 
 
-      <div>
+        {
+          modalOpen === true ?
+          <ConnectionModal setModalOpen={setModalOpen}/>
+          :
+          ""
+        }
+        <Welcome/>
+        <button onClick={()=>{setModalOpen(true)}}><FaUser/></button>
         {/* ici, nous allons générer un composant SodaCard pour
         chaque soda dans la liste dataProduct. 
         la fonction map prend en paramètre une fonction anonyme
@@ -35,7 +49,6 @@ function App() {
             )
           })
         }
-      </div>
 
 
 
